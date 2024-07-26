@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <dev class="logo">
+        <img src="logo192.png" alt="Logo">
+      </div>
+            <h2>Register</h2>
+        </header>
+        <main>
+            <div id="registerForm">
+                <form onsubmit="return showModules()">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    
+                    <button type="submit">Register</button>
+                </form>
+                <div class="links">
+                    <p>Already have an account? <a href="login.html">Login</a></p>
+                </div>
+            </div>
+            <div id="moduleSelection" style="display: none;">
+                <h3>Quick Access to Modules:</h3>
+                <div class="module-links">
+                    <a href="listening.html" class="button">Listening Module</a>
+                    <a href="reading.html" class="button">Reading Module</a>
+                    <a href="speaking.html" class="button">Speaking Module</a>
+                    <a href="writing.html" class="button">Writing Module</a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+        </footer>
+    </div>
+
+    <script>
+        function showModules() {
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('moduleSelection').style.display = 'block';
+            return false; // Prevents form submission
+        }
+    </script>
+</body>
+</html>

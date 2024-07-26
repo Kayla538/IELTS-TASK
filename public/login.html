@@ -1,0 +1,55 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <dev class="logo">
+        <img src="logo192.png" alt="Logo">
+      </div>
+      <h2>Login</h2>
+  </header>
+        <main>
+            <div id="loginForm">
+                <form onsubmit="return showModules()">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <button type="submit">Login</button>
+                </form>
+                <div class="links">
+                    <a href="#">Forgot Password?</a>
+                    <p>Don't have an account? <a href="register.html">Register</a></p>
+                </div>
+            </div>
+            <div id="moduleSelection" style="display: none;">
+                <h3>Quick Access to Modules:</h3>
+                <div class="module-links">
+                    <a href="listening.html" class="button">Listening Module</a>
+                    <a href="reading.html" class="button">Reading Module</a>
+                    <a href="speaking.html" class="button">Speaking Module</a>
+                    <a href="writing.html" class="button">Writing Module</a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+        </footer>
+    </div>
+
+    <script>
+        function showModules() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('moduleSelection').style.display = 'block';
+            return false; // Prevents form submission
+        }
+    </script>
+</body>
+</html>
