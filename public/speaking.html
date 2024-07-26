@@ -9,7 +9,9 @@
 <body>
     <div class="container">
         <header>
+            <img src="logo192.png" alt="Logo" class="logo">
             <h1>Speaking Module</h1>
+            <button id="darkModeToggle">Toggle Dark Mode</button>
             <nav>
                 <a href="login.html">Home</a>
                 <a href="#">Profile</a>
@@ -21,12 +23,22 @@
                 <p>Speaking prompt goes here...</p>
             </div>
             <div class="recording-controls">
-                <button>Record</button>
-                <button>Stop</button>
-                <button>Playback</button>
+                <button id="startRecording">Start Recording</button>
+                <button id="stopRecording" disabled>Stop Recording</button>
+                <div id="recordingStatus"></div>
+            </div>
+            <div class="playback">
+                <audio id="audioPlayback" controls></audio>
             </div>
             <div class="feedback">
-                <p>Feedback goes here...</p>
+                <h3>Immediate Feedback</h3>
+                <p id="feedbackText">Your feedback will appear here after speaking...</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div class="daily-goal">
+                Daily Goal: Not set
             </div>
         </main>
         <footer>
@@ -35,5 +47,33 @@
             <div class="progress-indicator">Progress: X%</div>
         </footer>
     </div>
+    <script src="script.js"></script>
+    <script>
+        // Speaking module specific JavaScript
+        const startRecordingButton = document.getElementById('startRecording');
+        const stopRecordingButton = document.getElementById('stopRecording');
+        const recordingStatus = document.getElementById('recordingStatus');
+        const audioPlayback = document.getElementById('audioPlayback');
+        const feedbackText = document.getElementById('feedbackText');
+
+        startRecordingButton.addEventListener('click', () => {
+            startRecordingButton.disabled = true;
+            stopRecordingButton.disabled = false;
+            recordingStatus.textContent = 'Recording...';
+            // Here you would typically start the actual recording process
+        });
+
+        stopRecordingButton.addEventListener('click', () => {
+            startRecordingButton.disabled = false;
+            stopRecordingButton.disabled = true;
+            recordingStatus.textContent = 'Recording stopped';
+            // Here you would typically stop the recording and process the audio
+            
+            // Simulating immediate feedback
+            setTimeout(() => {
+                feedbackText.textContent = 'Great job! Your pronunciation is improving.';
+            }, 1000);
+        });
+    </script>
 </body>
 </html>

@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -25,7 +26,7 @@ header {
 }
 
 header img.logo {
-    max-width: 150px; /* Adjust as needed */
+    max-width: 150px;
     height: auto;
     display: block;
     margin: 0 auto 10px auto;
@@ -204,6 +205,129 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    background-color: #222;
+}
+
+body.dark-mode .button {
+    background-color: #0056b3;
+}
+
+body.dark-mode form,
+body.dark-mode .audio-player,
+body.dark-mode .text-display,
+body.dark-mode .recording-controls,
+body.dark-mode .text-editor {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="password"],
+body.dark-mode textarea {
+    background-color: #555;
+    color: #fff;
+    border-color: #666;
+}
+
+/* Progress bar styles */
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    padding: 3px;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.progress-bar-fill {
+    display: block;
+    height: 22px;
+    background-color: #659cef;
+    border-radius: 3px;
+    transition: width 500ms ease-in-out;
+}
+
+/* Daily goal styles */
+.daily-goal {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+body.dark-mode .daily-goal {
+    background-color: #444;
+}
+
+/* Community link styles */
+#communityLink {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+#communityLink:hover {
+    background-color: #45a049;
+}
+
+/* Features list styles */
+.features {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+body.dark-mode .features {
+    background-color: #444;
+}
+
+.features ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.features li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+}
+
+/* Dark mode toggle button */
+#darkModeToggle {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+body.dark-mode #darkModeToggle {
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 /* Responsive Design */

@@ -9,7 +9,9 @@
 <body>
     <div class="container">
         <header>
+            <img src="logo192.png" alt="Logo" class="logo">
             <h1>Writing Module</h1>
+            <button id="darkModeToggle">Toggle Dark Mode</button>
             <nav>
                 <a href="login.html">Home</a>
                 <a href="#">Profile</a>
@@ -18,12 +20,26 @@
         </header>
         <main>
             <div class="prompt">
-                <p>Writing prompt goes here...</p>
+                <h3>Writing Prompt:</h3>
+                <p id="writingPrompt">Your writing prompt goes here...</p>
             </div>
             <div class="text-editor">
-                <textarea placeholder="Write your response here..."></textarea>
+                <textarea id="writingArea" rows="10" placeholder="Start writing here..."></textarea>
             </div>
-            <button>Submit Writing</button>
+            <div class="word-count">
+                <span id="wordCount">0</span> words
+            </div>
+            <div class="feedback">
+                <h3>Immediate Feedback</h3>
+                <p id="feedbackText">Your feedback will appear here after submission...</p>
+            </div>
+            <button id="submitWriting">Submit Writing</button>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div class="daily-goal">
+                Daily Goal: Not set
+            </div>
         </main>
         <footer>
             <button>Previous</button>
@@ -31,5 +47,27 @@
             <div class="progress-indicator">Progress: X%</div>
         </footer>
     </div>
+    <script src="script.js"></script>
+    <script>
+        // Writing module specific JavaScript
+        const writingArea = document.getElementById('writingArea');
+        const wordCount = document.getElementById('wordCount');
+        const submitButton = document.getElementById('submitWriting');
+        const feedbackText = document.getElementById('feedbackText');
+
+        writingArea.addEventListener('input', () => {
+            const words = writingArea.value.trim().split(/\s+/);
+            wordCount.textContent = words.length;
+        });
+
+        submitButton.addEventListener('click', () => {
+            // Here you would typically send the writing to a server for analysis
+            // For now, we'll simulate immediate feedback
+            feedbackText.textContent = 'Great job! Your writing is clear and concise. Consider adding more descriptive language to enhance your essay.';
+            
+            // Update progress (this is a placeholder - real implementation would be more complex)
+            updateProgress(50); // Assuming 50% progress after submission
+        });
+    </script>
 </body>
 </html>
