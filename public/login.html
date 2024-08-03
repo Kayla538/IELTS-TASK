@@ -3,54 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login - IELTS Assistant</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="login.css">
+    <script src="https://kit.fontawesome.com/85cecea8a2.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="logo192.png" alt="Logo" class="logo">
-            <h2>Login</h2>
-            <button id="darkModeToggle">Toggle Dark Mode</button>
-        </header>
-        <main>
-            <div id="loginForm">
-                <form onsubmit="return showModules()">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                    
-                    <button type="submit">Login</button>
-                </form>
-                <div class="links">
-                    <a href="#">Forgot Password?</a>
-                    <p>Don't have an account? <a href="register.html">Register</a></p>
+    <div class="login-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="/">IELTS Assistant</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/about_us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/questionnaire">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row justify-content-center align-items-center vh-100">
+                <div class="col-md-4">
+                    <div class="card login-card">
+                        <div class="card-body">
+                            <h3 class="card-title text-center">Login</h3>
+                            <form id="loginForm" action="/login" method="POST">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password" name="password" required>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                <div class="text-center mt-3">
+                                    <a href="/forgot_password">Forgot Password?</a>
+                                </div>
+                            </form>
+                            <div class="alert alert-danger mt-3" id="loginError" style="display: none;">Invalid email or password. Please try again.</div>
+                            <div class="text-center mt-3">
+                                <p>Don't have an account? <a href="/questionnaire">Register here</a></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="moduleSelection" style="display: none;">
-                <h3>Quick Access to Modules:</h3>
-                <div class="module-links">
-                    <a href="listening.html" class="button">Listening Module</a>
-                    <a href="reading.html" class="button">Reading Module</a>
-                    <a href="speaking.html" class="button">Speaking Module</a>
-                    <a href="writing.html" class="button">Writing Module</a>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <a href="#">Terms of Service</a>
-            <a href="#">Privacy Policy</a>
-        </footer>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
-        function showModules() {
-            document.getElementById('loginForm').style.display = 'none';
-            document.getElementById('moduleSelection').style.display = 'block';
-            return false; // Prevents form submission
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const togglePassword = document.querySelector('#togglePassword');
+            const password = document.querySelector('#password');
+            togglePassword.addEventListener('click', function () {
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,103 @@
+/* General Styles */
+body {
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.questionnaire-container {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+header {
+    margin-bottom: 30px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+header h1 {
+    color: #8a2be2;
+    font-size: 2.5rem;
+    font-weight: bold;
+    z-index: 2;
+    position: relative;
+}
+
+header .subtitle {
+    color: #6c757d;
+    font-size: 1.1rem;
+    z-index: 2;
+    position: relative;
+}
+
+/* Progress Bar */
+.progress {
+    height: 10px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.progress-bar {
+    background-color: #8a2be2;
+}
+
+/* Question Styles */
+.question-container {
+    margin-bottom: 20px;
+}
+
+.question-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.form-check-label {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Button Styles */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    margin-top: 20px;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Link Styles */
+a {
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

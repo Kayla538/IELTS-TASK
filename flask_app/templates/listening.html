@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Module</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #d214dc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            input[type="text"],
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Listening Module</h1>
+        <form action="/listening/" method="post">
+            <label for="topic">Select Topic:</label>
+            <input type="text" id="topic" name="topic" required>
+            <button type="submit">Generate Listening Passage</button>
+        </form>
+    </div>
+</body>
+
+</html>

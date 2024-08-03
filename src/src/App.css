@@ -1,0 +1,307 @@
+/* Styles for App components */
+.App-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.App-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.App-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.App-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.App-button:hover {
+  background-color: #0056b3;
+}
+
+.App-link {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+}
+
+.password-strength {
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.social-login {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.social-button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styles for listening module */
+.listening-module {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.question-container {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.question {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.option-button {
+  padding: 10px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option-button:hover {
+  background-color: #d0d0d0;
+}
+
+.completion-message {
+  text-align: center;
+  background-color: #e6f7ff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.listening-module audio {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Styles for reading module */
+.reading-module {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.reading-exercise {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.reading-passage {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.reading-questions .question {
+  margin-bottom: 20px;
+}
+
+.reading-questions .question p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.reading-questions textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for speaking module */
+.speaking-module {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.speaking-exercise {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.speaking-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.recording-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.record-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.record-button:hover {
+  background-color: #218838;
+}
+
+.record-button.recording {
+  background-color: #dc3545;
+}
+
+.record-button.recording:hover {
+  background-color: #c82333;
+}
+
+.timer {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Styles for writing module */
+.writing-module {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.writing-exercise {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.writing-topic {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timer-section {
+  margin-bottom: 15px;
+}
+
+.start-timer-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.timer {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.writing-textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.word-count {
+  text-align: right;
+  font-size: 14px;
+  color: #5a5353;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Common styles */
+.app-logo {
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}

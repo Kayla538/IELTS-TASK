@@ -1,0 +1,56 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.register-wrapper {
+    position: relative;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.register-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.register-card .card-title {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.footer {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 0;
+}
+
+.footer h5 {
+    margin-bottom: 15px;
+}
+
+.footer .social-icons a {
+    color: #007bff;
+    margin-right: 10px;
+}
+
+

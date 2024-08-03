@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .module-button {
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        .module-button:hover {
+            background-color: #e2e6ea;
+            color: #000000;
+        }
+        
+        .module-card {
+            margin-bottom: 30px;
+        }
+        
+        .module-title {
+            color: #000000;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            min-height: 70vh;
+        }
+        
+        .module-info {
+            max-width: 60%;
+        }
+        
+        .module-image {
+            max-width: 35%;
+        }
+        
+        .module-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .navbar-brand h1 {
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            font-size: 1.1rem;
+        }
+        
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #c20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .ielts-reading-section {
+            margin-top: 2rem;
+        }
+        
+        .reading-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 0.5rem;
+        }
+        
+        .reading-modules {
+            display: flex;
+            flex-wrap: wrap;
+           
+            gap: 1rem;
+            justify-content: space-between;
+        }
+        
+        .reading-module {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 0.5rem;
+            width: 23%;
+            
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .reading-module:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .module-icon {
+            width: 40px;
+            height: 50px;
+            margin-right: 0.5rem;
+        }
+        
+        .module-name {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+       
+        
+        .reading-module img {
+            vertical-align: middle;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .reading-module {
+                width: 48%;
+               
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .reading-module {
+                width: 100%;
+                
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(216, 30, 216, 0.696);">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <h1 style="color: rgba(102, 6, 123, 0.827); font-weight: bold;">IELTS Assistant</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reading">Reading</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/speaking">Speaking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/writing/topic">Writing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/listening">Listening</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            <div class="user-icon">{{ session.user_initials }}</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="main-content vh-100">
+            <div class="module-info">
+                <h1>Welcome, {{ session.user_first_name }} !</h1>
+                <p>Based on your profile, we recommend starting with the following practice.</p>
+                <h2 class="module-title">{{ recommended_module }}</h2>
+                <p>{{ recommended_module }}'s objective is to provide you the necessary support and mechanisms to evaluate your English skills.</p>
+
+                <a href="/{{ recommended_module | lower | replace(' ', '-') }}" class="btn btn-primary module-button">Start {{ recommended_module }}</a>
+            </div>
+            <div class="module-image">
+                <img src="{{ url_for('static', filename='images/' + (recommended_module | lower | replace(' ', '-') + '.jpg')) }}" alt="Module Image">
+            </div>
+        </div>
+
+        <div class="ielts-reading-section">
+            <h2 class="reading-title">IELTS Reading</h2>
+            <div class="reading-modules">
+                <a href="/basic" class="reading-module">
+                    <img src="{{ url_for('static', filename='images/improve-your-reading-skills.jpg') }}" alt="" class="module-icon">
+                    <span class="module-name">Ielts Reading #1-Begginer Level</span>
+                </a>
+                <a href="/intermediate" class="reading-module">
+                    <img src="{{ url_for('static', filename='images/improve-your-reading-skills.jpg') }}" alt="" class="module-icon">
+                    <span class="module-name">IELTS Reading #2-Intermediate  Level</span>
+                </a>
+                <a href="/advanced" class="reading-module">
+                    <img src="{{ url_for('static', filename='images/improve-your-reading-skills.jpg') }}" alt="" class="module-icon">
+                    <span class="module-name">IELTS Reading #3-Advanced Level</span>
+                </a>
+                <a href="/reading-module-4" class="reading-module">
+                    <img src="{{ url_for('static', filename='images/improve-your-reading-skills.jpg') }}" alt="" class="module-icon">
+                    <span class="module-name">IELTS Reading #3-Improve your reading skills</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+           
+            <div class="col-md-3">
+                <div class="card module-card">
+                    <div class="card-body">
+                        <h4 class="module-title">Reading</h4>
+                        <p>Enhance your reading skills with practice tests and reading exercises.</p>
+                        <a href="/reading" class="btn btn-primary module-button">Start Reading</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card module-card">
+                    <div class="card-body">
+                        <h4 class="module-title">Speaking</h4>
+                        <p>Improve your speaking skills with interactive exercises and feedback.</p>
+                        <a href="/speaking" class="btn btn-primary module-button">Start Speaking</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card module-card">
+                    <div class="card-body">
+                        <h4 class="module-title">Writing</h4>
+                        <p>Enhance your writing skills with prompts and evaluation tools.</p>
+                        <a href="/writing/topic" class="btn btn-primary module-button">Start Writing</a>
+                    </div>
+                </div>
+            </div>
+      
+            <div class="col-md-3">
+                <div class="card module-card">
+                    <div class="card-body">
+                        <h4 class="module-title">Listening</h4>
+                        <p>Sharpen your listening skills with audio exercises and quizzes.</p>
+                        <a href="/listening" class="btn btn-primary module-button">Start Listening</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zyJpOG5Wj+9M1H53xRyj0/9HA34VQAV3MIV0O4zE4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384
