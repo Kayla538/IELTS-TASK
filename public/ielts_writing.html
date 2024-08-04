@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>IELTS Writing</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="stylesheet" href="ielts_writing.css">
+</head>
+<body>
+   <nav class="navbar">
+       <div class="nav-container">
+           <a class="navbar-brand" href="/">
+               <h1>IELTS Assistant</h1>
+           </a>
+           <div class="navbar-links">
+               <a class="nav-link" href="/">Home</a>
+               <a class="nav-link" href="/reading">IELTS</a>
+               <a class="nav-link" href="/speaking">
+                   <i class="fas fa-chalkboard-teacher icon"></i>Lessons
+               </a>
+               <a class="nav-link" href="/user-feedback">My Report</a>
+               <a class="nav-link" href="/listening">Listening</a>
+               <a class="nav-link" href="/logout">
+                   <div class="user-icon">NO</div>
+               </a>
+           </div>
+       </div>
+   </nav>
+  
+   <div class="container" id="main-section">
+       <div class="text-content">
+           <h1 id="main-title">IELTS General Writing Test</h1>
+           <p id="main-description">Take this free test to understand your IELTS performance</p>
+           <div class="buttons">
+               <a id="start-practice-btn" href="/writing/free-general-ielts-writing-test" class="button">Start Practice</a>
+               <a href="#tips" class="button second">Writing Tips</a>
+           </div>
+       </div>
+       <div class="image-content">
+           <i class="fas fa-lock"></i>
+       </div>
+   </div>
+  
+   <div class="toggle">
+       <button id="general-test-btn" class="active" onclick="showTest('general')" style="border-right:3px solid rgb(255, 10, 255)">General Test</button>
+       <button id="academic-test-btn" class="second" onclick="showTest('academic')">Academic Test</button>
+   </div>
+  
+   <div class="modules" id="modules-container">
+   </div>
+  
+   <div id="popup" class="popup">
+       <div class="popup-content">
+           <span class="close-btn">&times;</span>
+           <p>Coming Soon</p>
+       </div>
+   </div>
+  
+   <script>
+       (function() {
+           const generalModules = [
+               { title: 'Request for Government Action', description: '', image: 'government.png', link: '/writing/start_practice' },
+               { title: 'Module 2', description: '', image: '', link: '/general/module2' },
+               { title: 'Module 3', description: '', image: '', link: '/general/module3' },
+               { title: 'Opinion on Environmental Policies', description: '', image: 'environmental.png', link: '/writing/start_practice' },
+               { title: 'Module 2', description: '', image: '', link: '/general/module2' },
+               { title: 'Module 3', description: '', image: '', link: '/general/module3' },
+               { title: 'Perspectives on Education Reform', description: '', image: 'education.png', link: '/writing/start_practice' },
+               { title: 'Module 2', description: '', image: '', link: '/general/module2' },
+               { title: 'Module 3', description: '', image: '', link: '/general/module3' },
+               { title: 'Views on Public Health Initiatives', description: '', image: 'Health.png', link: '/writing/start_practice' },
+               { title: 'Module 2', description: '', image: '', link: '/general/module2' },
+               { title: 'Module 3', description: '', image: '', link: '/general/module3' },
+           ];
+  
+           const academicModules = [
+               { title: 'Module A', description: 'Description for Academic Test Module A', image: 'academic-moduleA.jpg', link: '/writing/free-academic-ielts-writing-test' },
+               { title: 'Module B', description: 'Description for Academic Test Module B', image: 'academic-moduleB.jpg', link: '/academic/moduleB' },
+               { title: 'Module C', description: 'Description for Academic Test Module C', image: 'academic-moduleC.jpg', link: '/academic/moduleC' },
+           ];
+  
+           function showTest(testType) {
+               const title = document.getElementById('main-title');
+               const description = document.getElementById('main-description');
+               const startPracticeBtn = document.getElementById('start-practice-btn');
+               const modulesContainer = document.getElementById('modules-container');
+              
+               modulesContainer.innerHTML = '';
+  
+               const modules = testType === 'general' ? generalModules : academicModules;
+               const testTitle = testType === 'general' ? 'IELTS General Writing Test' : 'IELTS Academic Writing Test';
+               const testDescription = 'Take this free test to understand your IELTS performance';
+  
+               title.textContent = testTitle;
+               description.textContent = testDescription;
+  
+               startPracticeBtn.href = testType === 'general' ? '/writing/free-general-ielts-writing-test' : '/writing/academic_test';
+  
+               modules.forEach(module => {
+                   const moduleElement = document.createElement('a');
+                   moduleElement.href = 'javascript:void(0);';
+                   moduleElement.className = 'module';
+                   if (module.title.includes('Module 2') || module.title.includes('Module 3')) {
+                       moduleElement.innerHTML = `
+                           <i class="fas fa-lock"></i>
+                           <h3>${module.title}</h3>
+                           <p>${module.description}</p>
+                       `;
+                       moduleElement.addEventListener('click', showPopup);
+                   } else {
+                       moduleElement.innerHTML = `
+                           <img src="${module.image}" alt="${module.title}">
+                           <h3>${module.title}</h3>
+                           <p>${module.description}</p>
+                       `;
+                       moduleElement.href = module.link;
+                   }
+                   modulesContainer.appendChild(moduleElement);
+               });
+  
+               document.getElementById('general-test-btn').classList.toggle('active', testType === 'general');
+               document.getElementById('academic-test-btn').classList.toggle('active', testType === 'academic');
+           }
+  
+           function showPopup() {
+               const popup = document.getElementById('popup');
+               popup.style.display = 'block';
+           }
+  
+           function closePopup() {
+               const popup = document.getElementById('popup');
+               popup.style.display = 'none';
+           }
+  
+           document.querySelector('.close-btn').addEventListener('click', closePopup);
+  
+           window.onclick = function(event) {
+               const popup = document.getElementById('popup');
+               if (event.target == popup) {
+                   popup.style.display = "none";
+               }
+           }
+  
+           showTest('general');
+       })();
+   </script>
+</body>
+</html>
