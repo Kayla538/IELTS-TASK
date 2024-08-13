@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - IELTS Assistant</title>
+    <link rel="stylesheet" href="logout.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo192.png" alt="IELTS Assistant">
+            </div>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Logging Out...</h1>
+            <p id="logoutMessage">Please wait while we log you out.</p>
+            <div id="buttonContainer" style="display: none;">
+                <a href="login.html" class="button">Login Again</a>
+                <a href="home.html" class="button">Go to Homepage</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 IELTS Assistant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Function to perform logout
+            function performLogout() {
+                $.ajax({
+                    url: '/api/logout',
+                    method: 'POST',
+                    dataType: 'json',
+                    xhrFields: {
+                        withCredentials: true // This is important for sending cookies with the request
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $('#logoutMessage').text(response.message);
+                            $('#buttonContainer').show();
+                        } else {
+                            $('#logoutMessage').text('Logout succes.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Logout error:', error);
+                        $('#logoutMessage').text('you are now log out thank you for using IELTS Assistant.');
+                    },
+                    complete: function() {
+                        $('h1').text('Logout Status');
+                    }
+                });
+            }
+
+            // Clear client-side storage
+            function clearClientStorage() {
+                localStorage.clear();
+                sessionStorage.clear();
+                
+                // Clear cookies
+                document.cookie.split(";").forEach(function(c) { 
+                    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+                });
+            }
+
+            // Perform logout when the page loads
+            performLogout();
+            clearClientStorage();
+        });
+    </script>
+</body>
+</html>
+

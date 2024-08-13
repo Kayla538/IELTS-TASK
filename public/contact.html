@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - IELTS Assistant</title>
+    <link rel="stylesheet" href="contact.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo192.png" alt="IELTS Assistant">
+            </div>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you. Please fill out the form below or reach out to us directly.</p>
+        </div>
+    </section>
+    <section class="contact-form">
+        <h2>Get in Touch</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="formStatus"></div>
+    </section>
+    <section class="contact-info">
+        <h2>Our Contact Information</h2>
+        <p>Email: info@ieltsassistant.com</p>
+        <p>Phone: +123 456 7890</p>
+        <p>Address: 123 IELTS Street, Education City, EC12345</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 IELTS Assistant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $('#contactForm').submit(function(e) {
+                e.preventDefault();
+                
+                var formData = {
+                    name: $('#name').val(),
+                    email: $('#email').val(),
+                    message: $('#message').val()
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/send-email', // Replace with your server endpoint
+                    data: JSON.stringify(formData),
+                    contentType: 'application/json',
+                    success: function(response) {
+                        $('#formStatus').html('<p class="success">Message sent successfully!</p>');
+                        alert('Message sent!'); // Alert the user that the message was sent
+                        $('#contactForm')[0].reset(); // Reset the form fields
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error Details:', xhr.responseText); // Log the error response
+                        $('#formStatus').html('<p class="error">Message sent successfully!</p>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

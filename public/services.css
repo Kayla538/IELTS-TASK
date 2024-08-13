@@ -1,0 +1,98 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+header {
+    background-color: #ff00ff;
+    padding: 5px 20px; /* Reduced padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; /* Reduced height */
+}
+
+header .logo img {
+    height: 40px; /* Adjust the logo size */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px; /* Adjusted font size */
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    height: 80vh;
+    background: url('background.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero .content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+}
+
+/* Services section */
+.services-list {
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+.services-list .service {
+    margin-bottom: 30px;
+}
+
+.services-list .service h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.services-list .service p {
+    font-size: 1.2rem;
+    color: #595050;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

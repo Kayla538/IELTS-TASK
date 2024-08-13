@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Simulator - Orbido IELTS Mate</title>
+    <link rel="stylesheet" href="interview_simulator.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar (you can include your existing navbar here) -->
+
+    <div class="simulator-container">
+        <h1>IELTS Interview Simulator</h1>
+        <div id="timer">Time remaining: <span id="time">02:00</span></div>
+        <div id="question"></div>
+        <textarea id="answer" placeholder="Type your answer here..."></textarea>
+        <button id="submit-answer">Submit Answer</button>
+        <div id="feedback"></div>
+        <button id="next-question" style="display: none;">Next Question</button>
+        <div id="progress-bar">
+            <div id="progress"></div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            "Tell me about yourself.",
+            "Why do you want to study abroad?",
+            "Describe a challenge you've faced and how you overcame it.",
+            "What are your career goals?",
+            "How will studying in an English-speaking country benefit you?"
+        ];
+
+        const feedbackPhrases = [
+            "Great start! Consider expanding on ",
+            "Good point. You might also want to mention ",
+            "Well articulated. To improve, try to include ",
+            "Nice response. For a higher score, elaborate on ",
+            "Excellent structure. To enhance your answer, think about "
+        ];
+
+        const improvementSuggestions = [
+            "your specific skills or experiences",
+            "how this aligns with your long-term goals",
+            "the steps you took to resolve the situation",
+            "how your studies will contribute to achieving these goals",
+            "specific language or cultural skills you hope to gain"
+        ];
+
+        let currentQuestionIndex = 0;
+        let timer;
+        let timeLeft = 120; // 2 minutes
+
+        function displayQuestion() {
+            document.getElementById('question').textContent = questions[currentQuestionIndex];
+            document.getElementById('answer').value = '';
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('submit-answer').style.display = 'inline-block';
+            document.getElementById('next-question').style.display = 'none';
+            resetTimer();
+            updateProgressBar();
+        }
+
+        function generateFeedback(answer) {
+            const wordCount = answer.split(/\s+/).filter(word => word.length > 0).length;
+            let feedback = '';
+
+            if (wordCount < 50) {
+                feedback = "Your answer is a bit short. Try to expand your response to fully address the question. ";
+            } else if (wordCount > 200) {
+                feedback = "Your answer is quite detailed, which is good, but try to be more concise to stay within the time limit. ";
+            } else {
+                feedback = "Good length for your answer. ";
+            }
+
+            const randomFeedback = feedbackPhrases[Math.floor(Math.random() * feedbackPhrases.length)];
+            const randomSuggestion = improvementSuggestions[Math.floor(Math.random() * improvementSuggestions.length)];
+
+            feedback += randomFeedback + randomSuggestion + ".";
+
+            return feedback;
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            timeLeft = 120;
+            updateTimerDisplay();
+            timer = setInterval(function() {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    document.getElementById('submit-answer').click();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('time').textContent = 
+                (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+        }
+
+        document.getElementById('submit-answer').addEventListener('click', function() {
+            clearInterval(timer);
+            const answer = document.getElementById('answer').value;
+            const feedback = generateFeedback(answer);
+            const feedbackElement = document.getElementById('feedback');
+            feedbackElement.textContent = feedback;
+            feedbackElement.style.display = 'block';
+            this.style.display = 'none';
+            document.getElementById('next-question').style.display = 'inline-block';
+        });
+
+        document.getElementById('next-question').addEventListener('click', function() {
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+            displayQuestion();
+        });
+
+        // Initial question display
+        displayQuestion();
+    </script>
+</body>
+</html>

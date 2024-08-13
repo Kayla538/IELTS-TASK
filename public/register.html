@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +15,9 @@
             <a class="navbar-brand" href="/">IELTS Assistant</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="/about_us">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                 </ul>
             </div>
         </nav>
@@ -50,7 +49,7 @@
                                 <button type="submit" class="btn btn-primary btn-block">Register</button>
                             </form>
                             <div class="text-center mt-3">
-                                <p>Already have an account? <a href="/login">Login here</a></p>
+                                <p>Already have an account? <a href="login.html">Login here</a></p>
                             </div>
                         </div>
                     </div>
@@ -103,6 +102,7 @@
             const confirmPassword = document.getElementById('confirm_password');
             const passwordStrength = document.getElementById('password-strength');
 
+            // Password validation and strength check
             function validatePassword() {
                 if (password.value != confirmPassword.value) {
                     confirmPassword.setCustomValidity("Passwords Don't Match");
@@ -155,14 +155,19 @@
                 passwordStrength.style.color = color;
             }
 
+            // Handle form submission and login status
             form.addEventListener('submit', function(event) {
+                event.preventDefault();
                 if (password.value !== confirmPassword.value) {
-                    event.preventDefault();
                     alert('Passwords do not match!');
+                    return;
                 }
+                // Store user as logged in
+                localStorage.setItem('loggedIn', 'true');
+                // Redirect to home page after registration
+                window.location.href = 'home.html';
             });
         });
     </script>
 </body>
-
 </html>

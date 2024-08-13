@@ -1,0 +1,95 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Speaking</title>
+    <link rel="stylesheet" href="speaking.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>IELTS Speaking Practice</h1>
+        </header>
+        <section class="content">
+            <h2>Speaking Task</h2>
+            <p>Practice your speaking skills by completing the tasks below. Record your responses and compare them to sample answers.</p>
+            
+            <!-- Task 1 -->
+            <h3>Task 1: Introduction and Interview</h3>
+            <p>Answer the following questions:</p>
+            <ul>
+                <li>What is your name?</li>
+                <li>Where are you from?</li>
+                <li>What do you do? (Are you a student or do you work?)</li>
+            </ul>
+            <p><strong>Instructions:</strong> Click "Start Recording" and answer the questions verbally.</p>
+            <button id="startRecordingTask1">Start Recording Task 1</button>
+            <button id="stopRecordingTask1" disabled>Stop Recording Task 1</button>
+            <audio id="audioPlaybackTask1" controls></audio>
+            <div id="recordingStatusTask1"></div>
+            <div id="timerTask1" class="hidden">Time: <span id="timeTask1">0</span> seconds</div>
+            <div id="progressBarTask1" class="hidden"><div id="progressTask1"></div></div>
+
+            <!-- Task 2 -->
+            <h3>Task 2: Long Turn</h3>
+            <p>Describe a memorable event in your life. You have 1 minute to prepare and 2 minutes to speak.</p>
+            <p><strong>Instructions:</strong> Click "Start Recording" and describe the event in detail.</p>
+            <button id="startRecordingTask2">Start Recording Task 2</button>
+            <button id="stopRecordingTask2" disabled>Stop Recording Task 2</button>
+            <audio id="audioPlaybackTask2" controls></audio>
+            <div id="recordingStatusTask2"></div>
+            <div id="timerTask2" class="hidden">Time: <span id="timeTask2">0</span> seconds</div>
+            <div id="progressBarTask2" class="hidden"><div id="progressTask2"></div></div>
+        </section>
+        
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <p>Follow the instructions carefully and try to answer the questions as thoroughly as possible:</p>
+            <ol>
+                <li>Click on "Start Recording" to begin your response.</li>
+                <li>Answer the questions clearly and at a natural pace.</li>
+                <li>When you finish, click "Stop Recording" to end your response.</li>
+                <li>Listen to your recording and evaluate your performance.</li>
+            </ol>
+        </section>
+        
+        <section class="sample-answers">
+            <h2>Sample Answers</h2>
+            <p>Here are some sample answers for your reference:</p>
+            <h4>Task 1 Sample Answer:</h4>
+            <p>My name is John Doe, and I'm from New York City. Currently, I am a student at the university, majoring in psychology.</p>
+            <h4>Task 2 Sample Answer:</h4>
+            <p>One memorable event in my life was my graduation day. It was a day filled with joy and pride as I received my diploma in front of my family and friends.</p>
+        </section>
+        
+        <section class="feedback">
+            <h2>Feedback</h2>
+            <p>Let us know how you performed...</p>
+            <form id="feedbackForm">
+                <textarea id="feedbackText" placeholder="Enter your feedback here..." required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+            <div id="feedbackMessage" class="hidden"></div>
+        </section>
+    </div>
+    <script src="speaking.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackForm = document.getElementById('feedbackForm');
+            
+            feedbackForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                
+                // Get the feedback text
+                const feedbackText = document.getElementById('feedbackText').value;
+                
+                // Here you can add code to send the feedback to your server if needed
+                
+                // Redirect to writing.html
+                window.location.href = 'writing.html';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Listening</title>
+    <link rel="stylesheet" href="listening.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>IELTS Listening Practice</h1>
+        </header>
+        <section class="content">
+            <audio controls id="audioPlayer">
+                <source src="Recent Weather Events.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <button id="playButton">Play Audio</button>
+
+            <div id="taskContainer">
+                <div class="task">
+                    <h3>Task 1: Listen to the audio and answer the questions.</h3>
+                    <p>Question 1: What is the main topic of the audio?</p>
+                    <input type="text" id="task1Answer" placeholder="Type your answer here">
+                </div>
+                <div class="task">
+                    <h3>Task 2: Fill in the blanks as you listen.</h3>
+                    <p>The speaker mentions that the weather is ? <input type="text" id="task2Blank1" placeholder="blank"></p>
+                </div>
+                <div class="task">
+                    <h3>Task 3: Identify the main ideas discussed.</h3>
+                    <textarea id="task3Answer" placeholder="Type the main ideas here"></textarea>
+                </div>
+            </div>
+        </section>
+        <section class="feedback">
+            <h2>Feedback</h2>
+            <p>Let us know how you did...</p>
+            <form id="feedbackForm">
+                <textarea id="feedbackText" placeholder="Enter your feedback here..." required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+            <div id="feedbackMessage" class="hidden"></div>
+        </section>
+    </div>
+    <script src="listening.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackForm = document.getElementById('feedbackForm');
+            
+            feedbackForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                
+                // Get the feedback text
+                const feedbackText = document.getElementById('feedbackText').value;
+                
+                // Here you can add code to send the feedback to your server if needed
+                
+                // Redirect to speaking.html
+                window.location.href = 'speaking.html';
+            });
+        });
+    </script>
+</body>
+</html>

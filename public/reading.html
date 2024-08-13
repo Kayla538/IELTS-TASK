@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Reading</title>
+    <link rel="stylesheet" href="reading.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>IELTS Reading Practice</h1>
+        </header>
+        <section class="content">
+            <h2>Reading Passage</h2>
+            <div id="passageContainer">
+                <!-- Reading passage content will be loaded here -->
+            </div>
+        </section>
+        <section class="questions">
+            <h2>Questions</h2>
+            <div id="questionsContainer">
+                <!-- Reading comprehension questions will be loaded here -->
+            </div>
+            <button id="submitAnswers">Submit Answers</button>
+            <div id="scoreMessage" class="hidden"></div>
+        </section>
+        <section class="feedback">
+            <h2>Feedback</h2>
+            <p>Let us know how you did...</p>
+            <form id="feedbackForm">
+                <textarea id="feedbackText" placeholder="Enter your feedback here..." required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+            <div id="feedbackMessage" class="hidden"></div>
+        </section>
+    </div>
+    <script src="reading.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackForm = document.getElementById('feedbackForm');
+            
+            feedbackForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                
+                // Get the feedback text
+                const feedbackText = document.getElementById('feedbackText').value;
+                
+                // Here you can add code to send the feedback to your server if needed
+                
+                // Redirect to listening.html
+                window.location.href = 'listening.html';
+            });
+        });
+    </script>
+</body>
+</html>

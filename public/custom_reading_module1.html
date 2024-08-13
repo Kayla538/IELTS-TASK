@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBIDO - Your IELTS Mate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="custom_reading_module1.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a class="navbar-brand" href="/home">
+                <img src="logo192.png" alt="">RBIDO
+            </a>
+        </div>
+    </nav>
+    <h1>Ready to start? <i class="fa-solid fa-bolt" style="color: #FFD43B;"></i></h1>
+    <form id="generate-form" action="{{ url_for('reading.generate_passage', module_type='basic') }}" method="POST">
+        <div class="soli">
+            <input type="text" id="topic" name="topic" required placeholder="Type your favourite topic here...">
+            <button type="submit">Generate Passage</button>
+        </div>
+    </form>
+
+    <div id="overlay" class="overlay">
+        <img src="robo1-2.webp" alt="Loading">
+        <p>Your passage is getting ready, it can take a while...</p>
+        <p id="loading-timer">0s</p>
+    </div>
+
+    <script>
+        document.getElementById('generate-form').addEventListener('submit', function(e) {
+            document.getElementById('overlay').classList.add('active');
+            let seconds = 0;
+            const timerElement = document.getElementById('loading-timer');
+            const interval = setInterval(() => {
+                seconds += 1;
+                timerElement.innerText = `${seconds}s`;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

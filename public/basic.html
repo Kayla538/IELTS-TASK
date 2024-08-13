@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBIDO - Your IELTS Mate</title>
+    <link rel="stylesheet" href="basic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a class="navbar-brand" href="/home">
+                <img src="logo192.png" alt="">RBIDO
+            </a>
+        </div>
+    </nav>
+    <h1>Start your reading practice now... <i class="fa-solid fa-feather fa-lg" style="color: #FFD43B;"></i></h1>
+    <div class="faqcontainer">
+        <div class="question">
+            <details>
+                <summary class="drop">Read the text <i class="fa-solid fa-file-lines fa-xl" style="color: #e3c21d; float: right; margin-left: auto;"></i></summary>
+                <div class="content scrollable">
+                    <h2>The Importance of Reading</h2>
+                    <p>Reading is a fundamental skill that allows individuals to access information, gain knowledge, and understand the world around them. It enhances vocabulary, improves concentration, and fosters critical thinking. In an age where information is abundant, the ability to read effectively is more important than ever. Whether for academic purposes, personal enjoyment, or professional development, reading opens doors to new ideas and perspectives.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="question">
+            <details>
+                <summary class="drop">Questions <i class="fa-solid fa-comments fa-xl" style="color: #dcb529; float: right; margin-left: auto;"></i></summary>
+                <div class="content scrollable">
+                    <form action="{{ url_for('reading.submit_answers') }}" method="POST">
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">What is the main benefit of reading?</legend>
+                            <label>
+                                <input type="radio" name="question_1" value="Improves vocabulary" required>
+                                Improves vocabulary
+                            </label>
+                            <label>
+                                <input type="radio" name="question_1" value="Enhances critical thinking" required>
+                                Enhances critical thinking
+                            </label>
+                            <label>
+                                <input type="radio" name="question_1" value="Provides entertainment" required>
+                                Provides entertainment
+                            </label>
+                        </fieldset>
+                        <button type="submit">Submit Answers</button>
+                    </form>
+                </div>
+            </details>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.question details').forEach((detail) => {
+            detail.addEventListener('click', function () {
+                this.querySelector('.icon').src = this.open ? "/static/images/icon-minus.svg" : "/static/images/icon-plus.svg";
+            });
+        });
+    </script>
+</body>
+</html>

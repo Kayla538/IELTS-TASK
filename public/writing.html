@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Writing</title>
+    <link rel="stylesheet" href="writing.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>IELTS Writing Practice</h1>
+        </header>
+        <section class="content">
+            <h2>Writing Task</h2>
+            <p>Complete the writing tasks below. Make sure to follow the instructions carefully and write within the word limit.</p>
+            
+            <h3>Choose a Task</h3>
+            <select id="taskSelector">
+                <option value="1">Task 1: Increase Road Safety</option>
+                <option value="2">Task 2: Technology and Education</option>
+            </select>
+            
+            <div id="taskPrompt">
+                <h3>Task Prompt</h3>
+                <blockquote>
+                    <p>Some people believe that the best way to increase road safety is to increase the minimum legal age for driving cars or riding motorbikes. To what extent do you agree or disagree?</p>
+                </blockquote>
+            </div>
+            
+            <textarea id="essayText" placeholder="Type your essay here..." rows="10"></textarea>
+            <div id="wordCount">Word Count: 0</div>
+            <button id="saveDraft">Save Draft</button>
+            <button id="submitEssay">Submit Essay</button>
+        </section>
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <p>Read the task description carefully and organize your response effectively. Pay attention to grammar, vocabulary, and coherence.</p>
+            <p><strong>Word Limit:</strong> Your essay should be between <strong>150</strong> and <strong>300</strong> words.</p>
+            <ol>
+                <li>Plan your essay before you start writing.</li>
+                <li>Write clearly and concisely, ensuring you address the task requirements.</li>
+                <li>Check your work for grammatical and spelling errors before submitting.</li>
+                <li>Use a variety of sentence structures and vocabulary to enhance your writing.</li>
+            </ol>
+        </section>
+        <section class="feedback">
+            <h2>Feedback</h2>
+            <p>Submit your writing for feedback and see how you can improve...</p>
+            <div id="feedbackMessage" class="hidden"></div>
+        </section>
+    </div>
+    <script src="writing.js"></script>
+</body>
+</html>

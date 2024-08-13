@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbido</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Redirection logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('loggedIn');
+            if (!isLoggedIn) {
+                // Redirect to the register page if not logged in
+                window.location.href = 'register.html';
+            }
+        });
+    </script>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="logo192.png" alt="Logo">
+        </div>
+        <div class="navbar-links">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Orbido YOUR IELTS MATE</h1>
+            <p>Your journey to success starts here.</p>
+            <a href="dashboard.html" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="custom-container">
+        <div class="main-content">
+            <div class="module-info">
+                <h2>Featured Module</h2>
+                <p>Explore our latest features designed to help you achieve your goals.</p>
+                <a href="learn_more.html" class="module-button">Learn More</a>
+            </div>
+            <div class="module-image">
+                <img src="Module1.jpg" alt="Module Image">
+            </div>
+        </div>
+
+        <!-- IELTS Modules Section -->
+        <section class="ielts-reading-section">
+            <div class="reading-title">
+                <h2>IELTS Modules</h2>
+            </div>
+            <div class="reading-modules">
+                <a href="reading.html" class="reading-module module-1">
+                    <span class="module-name">Module 1</span>
+                </a>
+                <a href="writing.html" class="reading-module module-2">
+                    <span class="module-name">Module 2</span>
+                </a>
+                <a href="listening.html" class="reading-module module-3">
+                    <span class="module-name">Module 3</span>
+                </a>
+                <a href="speaking.html" class="reading-module module-4">
+                    <span class="module-name">Module 4</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Interview Simulator Section -->
+        <section class="interview-simulator-section">
+            <div class="interview-simulator-content">
+                <div class="interview-simulator-info">
+                    <h2 class="interview-title">Interview Simulator</h2>
+                    <p class="interview-description">Prepare for your interviews with our realistic simulator.</p>
+                    <a href="interview_simulator.html" class="start-button">Start Now</a>
+                </div>
+            </div>
+            <p class="interview-label">Ace your interviews with confidence!</p>
+        </section>
+    </div>
+
+</body>
+</html>

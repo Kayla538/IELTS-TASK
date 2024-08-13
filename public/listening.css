@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.header h1:hover {
+    color: #555;
+}
+
+.content, .feedback {
+    margin-top: 20px;
+}
+
+.task {
+    margin-bottom: 20px;
+}
+
+.task h3 {
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #f71cb2;
+}
+
+button {
+    background-color: #f73fb4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #f728b5;
+    transform: scale(1.05);
+}
+
+.feedback {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.feedback:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.feedback h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.feedback h2:hover {
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+
+#feedbackMessage {
+    margin-top: 10px;
+    color: rgb(247, 57, 162);
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .feedback h2 {
+        font-size: 16px;
+    }
+}

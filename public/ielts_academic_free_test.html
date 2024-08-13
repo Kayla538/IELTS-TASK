@@ -1,0 +1,36 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Academic Writing Test</title>
+    <link rel="stylesheet" href="ielts_academic_free_test.css">
+</head>
+<body>
+    <h1>IELTS Academic Writing Test</h1>
+
+    <!-- Task 1 -->
+    <div class="task">
+        <div class="task-title">Task 1: Your Favorite Color</div>
+        <div class="task-context">Write about your favorite color. Explain why it is your favorite and how it makes you feel.</div>
+        <div class="task-instructions">Provide details about your choice and any personal experiences related to this color.</div>
+        <form action="{{ url_for('writing.submit_academic_response') }}" method="post">
+            <textarea name="response" required></textarea>
+            <input type="hidden" name="task_number" value="1">
+            <button type="submit">Submit Task 1</button>
+        </form>
+    </div>
+
+    <!-- Task 2 -->
+    <div class="task">
+        <div class="task-title">Task 2: Opinion Essay</div>
+        <div class="task-context">Some people believe that technology has made life easier, while others think it has made life more complicated.</div>
+        <div class="task-instructions">Discuss both views and give your own opinion.</div>
+        <form action="{{ url_for('writing.submit_academic_response') }}" method="post">
+            <textarea name="response" required></textarea>
+            <input type="hidden" name="task_number" value="2">
+            <button type="submit">Submit Task 2</button>
+        </form>
+    </div>
+</body>
+</html>

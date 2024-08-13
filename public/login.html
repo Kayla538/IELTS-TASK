@@ -14,10 +14,9 @@
             <a class="navbar-brand" href="/">IELTS Assistant</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="/about_us">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/questionnaire">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                 </ul>
             </div>
         </nav>
@@ -46,12 +45,12 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block">Login</button>
                                 <div class="text-center mt-3">
-                                    <a href="/forgot_password">Forgot Password?</a>
+                                    <a href="forgot_password.html">Forgot Password?</a>
                                 </div>
                             </form>
                             <div class="alert alert-danger mt-3" id="loginError" style="display: none;">Invalid email or password. Please try again.</div>
                             <div class="text-center mt-3">
-                                <p>Don't have an account? <a href="/questionnaire">Register here</a></p>
+                                <p>Don't have an account? <a href="register.html">Register here</a></p>
                             </div>
                         </div>
                     </div>
@@ -65,6 +64,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Toggle password visibility
             const togglePassword = document.querySelector('#togglePassword');
             const password = document.querySelector('#password');
             togglePassword.addEventListener('click', function () {
@@ -72,6 +72,24 @@
                 password.setAttribute('type', type);
                 this.querySelector('i').classList.toggle('fa-eye');
                 this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+
+            // Handle login form submission
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Dummy login check (replace with real authentication)
+                if (email === "user@example.com" && password === "password123") {
+                    // Set a logged-in status in localStorage
+                    localStorage.setItem('loggedIn', 'true');
+                    // Redirect to home page
+                    window.location.href = 'home.html';
+                } else {
+                    // Show error message
+                    document.getElementById('loginError').style.display = 'block';
+                }
             });
         });
     </script>
